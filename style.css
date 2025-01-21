@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    background-image: url(dark-guardian-kratos-lo-1366x768.jpg); 
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    animation: bg 35s infinite ease-in-out;
+}
+@keyframes bg{
+    0%{
+       background-image: url(img/0.jpeg); 
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+    10%{
+        background-image: url(img/1.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     20%{
+        background-image: url(img/2.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+    30%{
+        background-image: url(img/6.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     40%{
+        background-image: url(img/14.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     50%{
+        background-image: url(img/7.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     60%{
+        background-image: url(img/9.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; 
+     }
+     70%{
+        background-image: url(img/11.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     80%{
+        background-image: url(img/12.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     90%{
+        background-image: url(img/16.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+     100%{
+        background-image: url(img/4.jpeg); 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+     }
+}
+nav{
+    background-color: white;
+    box-shadow: 3px 3px 5px black;
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav li{
+    height: 50px;
+}
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+nav a:hover{
+    background-color:orangered;
+    color: white;
+    
+}
+nav li:first-child{
+    margin-right: auto;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.333);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px black;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.menu-button{
+    display: none;
+}
+/* Design */
+
+.banner{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 20%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateZ(-0deg) rotateX(-1deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateZ(-0deg) rotateX(-1deg) rotateY(360deg);
+    }
+}
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform:
+    rotateY(calc((var(--position) - 1)* (360/ var(--quantity)) * 1deg)) 
+    translateZ(400px);
+    
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media(max-width:800px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button{
+        display: block;
+    }
+    .banner .slider .item{
+        display: flex;
+
+    }
+    .banner .slider .item img{
+        margin-top: 30px;
+        width:200px;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+}
+
+@media(max-width:400px){
+    .sidebar{
+        width: 100%;
+    }
+    .banner .slider .item img{
+        margin-top: 30px;
+        width:160px;
+        height: 125px;
+        object-fit: cover;
+    }
+}
+#h{
+    text-align: center;
+    border-bottom: 10px;
+    color: white;
+}
+#h span{
+    color: orangered;
+}
+p{
+    color: transparent;
+}
+
+.car{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    bottom: 10px;
+}
+.car-img{
+    display: flex;
+    width: calc(20*200px);
+    height: 200px; 
+    transition: transform 0.5s ease;
+    animation: move 20s infinite;
+    background-position: center;
+}
+.car-img img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    padding: 2px;
+    cursor: pointer;
+    transition:  0.2s ease;
+}
+.car-img img:hover{
+   transform: scale(1.1);
+}
+@keyframes move{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-900px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
